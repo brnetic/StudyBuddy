@@ -1,21 +1,23 @@
 package com.example.studybuddy;
 
-import android.os.Bundle;
+
 
 import androidx.activity.EdgeToEdge;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.google.firebase.FirebaseApp;
+
+import android.os.Bundle;
+
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FirebaseApp.initializeApp(this);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -28,8 +30,11 @@ public class MainActivity extends AppCompatActivity {
     public void onStart(){
 
         super.onStart();
+        Authenticator authenticator = new Authenticator();
+        User user = new User("Luka Brnetic","","luka.brnetic2@gmail.com",null);
+        authenticator.createUser(user,"Lukaerik1");
 
-        User user = new User();
-        user.register("Luka", "Kurac");
     }
+
+
 }
