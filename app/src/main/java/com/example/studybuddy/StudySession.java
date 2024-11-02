@@ -13,6 +13,7 @@ public class StudySession {
     public ArrayList<User> invitedMembers;
     public User creator;
     public String sessionName;
+    public StudyGroup studyGroup;
 
     public void updateLocation(Location location){
         this.location = location;
@@ -22,6 +23,9 @@ public class StudySession {
     }
     public void inviteMember(User user){
         invitedMembers.add(user);
+    }
+    public String getId(){
+        return studySessionId;
     }
 
 

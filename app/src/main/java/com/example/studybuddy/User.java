@@ -3,6 +3,8 @@ package com.example.studybuddy;
 
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -14,13 +16,17 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+
 import java.util.ArrayList;
+import java.util.Objects;
+import java.util.concurrent.CompletableFuture;
 
 
-public class User{
+public class User implements Parcelable {
 
     public String name;
-    Authenticator authenticator = new Authenticator();
+    private boolean loggedIn;
+
     private String id;
 
     public String email;
@@ -35,31 +41,41 @@ public class User{
         this.id = id;
         this.selectedCourses = selectedCourses;
     }
-    public void login(String email, String password){
-        this.email = email;
-        authenticator.loginUser(email, password);
-        User temp = authenticator.getCurrentUser();
-        assignUserValues(temp);
-
+    protected User(Parcel in) {
+        name = in.readString();
+        email = in.readString();
     }
 
-    public void register(String email, String password, String name){
-        this.email = email;
-        this.name = name;
-        this.selectedCourses = new ArrayList<Course>();
-        authenticator.createUser(this, password);
-        User temp = authenticator.getCurrentUser();
-        assignUserValues(temp);
+    public static final Creator<User> CREATOR = new Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel in) {
+            return new User(in);
+        }
 
+        @Override
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
 
-
+    @Override
+    public int describeContents() {
+        return 0;
     }
-    public void assignUserValues(User temp){
-        this.email = temp.email;
-        this.id = temp.id;
-        this.name = temp.name;
-        this.selectedCourses = temp.selectedCourses;
+
+    @Override
+    public void writeToParcel(Parcel parcel, int flags) {
+        parcel.writeString(name);
+        parcel.writeString(email);
     }
+
+
+
+    public boolean isLoggedIn(){
+        return loggedIn;
+    }
+
+
     public String getId(){
         return id;
     }
