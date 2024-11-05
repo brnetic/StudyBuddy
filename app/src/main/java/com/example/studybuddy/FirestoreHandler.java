@@ -89,5 +89,34 @@ public class FirestoreHandler {
                 });
         return studySessions;
     }
+    public void saveStudyGroup(StudyGroup studyGroup) {
+        db.collection("studygroups").add(studyGroup).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Log.d("FirestoreHandler", "Succesfully saved a Study Group");
+            } else {
+                Log.d("FirestoreHandler", "Error with saving a Study Group");
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.w("Firestore", "Falire with saving a Study Group", e);
+            }
+        });
+    }
+    public void saveChatMessage(ChatMessage chatMessage){
+        db.collection("chatmessages").add(chatMessage).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Log.d("FirestoreHandler", "Succesfully saved a Chat Message");
+            } else {
+                Log.d("FirestoreHandler", "Error with saving a Chat Message");
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.w("Firestore", "Falire with saving a Chat Message", e);
+            }
+        });
+    }
+
 
 }

@@ -87,13 +87,10 @@ public class User implements Parcelable {
         selectedCourses.add(course);
     }
     public void joinStudyGroup(StudyGroup studyGroup){
+        studyGroup.addMember(this);
+    }
 
-    }
-    public void createStudyGroup(){
 
-    }
-    public void logout(){
-    }
     public void scheduleStudySession(){
 
     }
