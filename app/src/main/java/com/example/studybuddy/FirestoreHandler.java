@@ -56,6 +56,8 @@ public class FirestoreHandler {
 
         return studyGroups;
     }
+
+
     public ArrayList<StudySession> getStudySessions(StudyGroup studyGroup){
         db.collection("studysessions").whereEqualTo("studyGroup",studyGroup)
                 .get()
@@ -89,8 +91,22 @@ public class FirestoreHandler {
                 });
         return studySessions;
     }
-    public void saveStudyGroup(StudyGroup studyGroup) {
+    public void createNewStudyGroup(StudyGroup studyGroup) {
         db.collection("studygroups").add(studyGroup).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Log.d("FirestoreHandler", "Succesfully saved a Study Group");
+            } else {
+                Log.d("FirestoreHandler", "Error with saving a Study Group");
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.w("Firestore", "Falire with saving a Study Group", e);
+            }
+        });
+    }
+    public void createNewStudySession(StudySession studySession){
+        db.collection("studysessions").add(studySession).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 Log.d("FirestoreHandler", "Succesfully saved a Study Group");
             } else {

@@ -7,6 +7,14 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <TextView
+        android:id="@+id/myGroupsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="Loading..."
+        android:layout_gravity="center"/>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="384dp"
         android:layout_height="wrap_content">
