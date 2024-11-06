@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Please enter your password", Toast.LENGTH_SHORT).show();
                 } else if (isValidEmail(email) && password.length() >= 6) {
                     loginUser(email, password);
-                    Toast.makeText(MainActivity.this, "Login successful!", Toast.LENGTH_SHORT).show();
+
 
 
 
@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
                                     .addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
-                                            Log.w("Firestore", "Error getting document", e);
+                                            Toast.makeText(MainActivity.this,e.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
                                         }
                                     });
 
