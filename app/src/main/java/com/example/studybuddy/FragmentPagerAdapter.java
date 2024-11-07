@@ -1,19 +1,16 @@
 package com.example.studybuddy;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-public class FragmentPagerAdapter extends FragmentStateAdapter {
-
-    public FragmentPagerAdapter(FragmentActivity fa) {
-        super(fa);
+public class FragmentPagerAdapter extends androidx.viewpager2.adapter.FragmentStateAdapter {
+    public FragmentPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
+        super(fragmentActivity);
     }
 
-    @NonNull
     @Override
     public Fragment createFragment(int position) {
+        // Return the appropriate fragment for each tab
         switch (position) {
             case 0:
                 return new MyGroupsFragment();
@@ -22,12 +19,12 @@ public class FragmentPagerAdapter extends FragmentStateAdapter {
             case 2:
                 return new ResourcesFragment();
             default:
-                return new MyGroupsFragment(); // Fallback in case of error
+                return new MyGroupsFragment(); // Default to MyGroupsFragment
         }
     }
 
     @Override
     public int getItemCount() {
-        return 3;
+        return 3; // Number of tabs (My Groups, Sessions, Resources)
     }
 }

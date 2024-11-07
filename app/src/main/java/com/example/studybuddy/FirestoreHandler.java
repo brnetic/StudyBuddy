@@ -129,7 +129,7 @@ public class FirestoreHandler {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Log.w("Firestore", "Falire with saving a Chat Message", e);
+                Log.w("Firestore", "Failure with saving a Chat Message", e);
             }
         });
     }

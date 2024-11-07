@@ -27,7 +27,7 @@ public class StudyGroupAdapter extends RecyclerView.Adapter<StudyGroupAdapter.St
     @Override
     public void onBindViewHolder(@NonNull StudyGroupViewHolder holder, int position) {
         StudyGroup studyGroup = studyGroups.get(position);
-        holder.classNameTextView.setText("Class: " + studyGroup.course.courseName);
+        holder.classNameTextView.setText("Class: " + studyGroup.course);
         holder.groupNameTextView.setText("Study Group: " + studyGroup.name);
         holder.membersTextView.setText("Members: " + String.join(", ", studyGroup.members));
     }

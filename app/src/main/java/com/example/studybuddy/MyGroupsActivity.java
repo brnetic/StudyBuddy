@@ -2,6 +2,7 @@ package com.example.studybuddy;
 
 import android.os.Bundle;
 import android.text.Layout;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +26,7 @@ public class MyGroupsActivity extends AppCompatActivity {
     private List<StudyGroup> myGroups;
     private StudyGroupAdapter studyGroupAdapter;
 
+
     private FirestoreHandler firestoreHandler = new FirestoreHandler();
 
     @Override
@@ -35,6 +37,7 @@ public class MyGroupsActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.viewPager);
         layout = findViewById(R.id.recyclerView);
+
 
         myGroups = firestoreHandler.getStudyGroups(user);
 
@@ -47,6 +50,7 @@ public class MyGroupsActivity extends AppCompatActivity {
 
         studyGroupAdapter = new StudyGroupAdapter(myGroups);
         studyGroupAdapter.notifyDataSetChanged();
+
 
         viewPager.setAdapter(adapter);
 
