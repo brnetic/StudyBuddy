@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Project2_StudyBuddy</string>
+    <string name="app_name">StudyBuddy</string>
+    <string name="welcome_message">Welcome, %1$s!</string>
+    <string name="load_user_data_failed">Failed to load user data</string>
 </resources>

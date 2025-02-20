@@ -19,3 +19,28 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# Firebase Firestore
+#-keep class com.google.firebase.** { *; }
+#-dontwarn com.google.firebase.firestore.**
+
+
+# Protobuf
+#-keep class com.google.protobuf.** { *; }
+#-keepclassmembers class * extends com.google.protobuf.GeneratedMessageLite {
+#    public static *** parseFrom(...);
+#}
+#-dontwarn com.google.protobuf.**
+
+# File: app/proguard-rules.pro
+
+# Firebase Firestore and Protobuf
+-keep class com.google.firebase.firestore.** { *; }
+-keep class com.google.protobuf.** { *; }
+-keepclassmembers class * extends com.google.protobuf.GeneratedMessageLite {
+    public static *** parseFrom(...);
+}
+-dontwarn com.google.firebase.firestore.**
+-dontwarn com.google.protobuf.**
+
+

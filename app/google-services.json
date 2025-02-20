@@ -2,14 +2,14 @@
   "project_info": {
     "project_number": "513354503929",
     "project_id": "studybuddy-fc156",
-    "storage_bucket": "studybuddy-fc156.appspot.com"
+    "storage_bucket": "studybuddy-fc156.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:513354503929:android:0ca6c82cc1d2fc168e3428",
+        "mobilesdk_app_id": "1:513354503929:android:f0269ec3300817748e3428",
         "android_client_info": {
-          "package_name": "com.example.studdybuddy"
+          "package_name": "com.example.project_test"
         }
       },
       "oauth_client": [],
